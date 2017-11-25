@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Event {
     Random random = new Random();
-    private int id = random.nextInt();
+    private int id = random.nextInt(10);
     private DateFormat df;
 
     public Event(Date date) {
@@ -27,6 +27,6 @@ public class Event {
     }
 
     public String toString() {
-        return Integer.toString(id) + " " + msg + df.format(date);
+        return Integer.toString(id) + " " + msg + " " + df.format(date);
     }
 }

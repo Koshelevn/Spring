@@ -3,7 +3,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class FileEventLogger{
+public class FileEventLogger implements EventLogger{
 
     private File file;
 
