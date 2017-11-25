@@ -1,4 +1,6 @@
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ public class CacheFileEventLogger extends FileEventLogger {
         this.cache = new ArrayList<Event>(cacheSize);
     }
 
-
+    @PreDestroy
     public void destroy() {
         if ( ! cache.isEmpty()) {
         writeEventsFromCache();
@@ -29,7 +31,7 @@ public class CacheFileEventLogger extends FileEventLogger {
             cache.clear();
         }
     }
-
+    @PostConstruct
     private void writeEventsFromCache() {
         cache.stream().forEach(super::logEvent);
     }
